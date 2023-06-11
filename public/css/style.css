@@ -1,0 +1,155 @@
+/*Website Template by freewebsitetemplates.com*/
+body {
+    /*background: #20b46a;*/
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    line-height: 1;
+    margin: 0;
+    padding: 20px;
+
+}
+
+label {
+    color: #009688;
+    width: 100%;
+}
+
+.header {
+    color: #009688;
+    font-size: large;
+    margin: 10px;
+}
+
+
+
+nav > div {
+    background: transparent;
+}
+
+nav {
+    margin-top: 20px;
+    background: #fff;
+    height: 40px
+}
+
+
+.main {
+    margin-left: 160px; /* Same as the width of the sidenav */
+    font-size: 28px; /* Increased text to enable scrolling */
+    padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+
+#sidebar {
+    /* don't forget to add all the previously mentioned styles here too */
+    background: #C91902;
+    color: #fff;
+    transition: all 0.3s;
+}
+
+#sidebar .sidebar-header {
+    padding: 20px;
+    background: #993133;
+    font-size: large;
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+}
+
+#sidebar ul p {
+    color: #fff;
+    padding: 10px;
+}
+
+#sidebar ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+    color: white;
+}
+#sidebar ul li a:hover {
+    color: white;
+    background: #2b0000;
+}
+
+#sidebar ul li.active > a, a[aria-expanded="true"] {
+    color: #fff;
+    background: #993133;
+}
+ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+    background: #993133;
+}
+
+#editor {
+    color: black;
+    min-height: 300px;
+}
+
+.editor {
+    background: white;
+    margin: 10px;
+}
+
+.category{
+
+    /*background: white;*/
+
+    margin: 2%;
+}
+
+.category-title{
+    background: #B9121B;
+    padding: 5px;
+    text-align: center;
+    color: white;
+    font-size: large;
+}
+
+.category-body{
+    padding: 1%;
+}
+
+.about{
+    max-width: 100vh;
+}
+
+.navbar {
+    transition: top 0.5s ease;
+}
+
+.navbar-hide {
+    top: -56px;
+}
+
+footer{
+    background: #212121;
+    color: white;
+}
+
+.row{
+    margin-top: 20px;
+}
+
+.period{
+    border: solid 1px;
+    border-color: #888888;
+    padding: 10px;
+}
+
+.locale{
+    background: #C91902;
+    text-color: #fff;
+}
+
+.locale, .options{
+    background: #C91902;
+    text-color: #fff;
+    border:none; !important;
+}

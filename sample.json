@@ -1,0 +1,108 @@
+{
+  "COMP LAB1": {
+    "Monday": [
+      {
+        "name": "COMP LAB1",
+        "type": "lab",
+        "capacity": 50,
+        "unit": "COMP110",
+        "time": "07:00 - 10:00",
+        "day": "Monday",
+        "group": "A",
+        "totalStudents": 150,
+        "programs": "CS IT "
+      }
+    ],
+    "Wednesday": [
+      {
+        "name": "COMP LAB1",
+        "type": "lab",
+        "capacity": 50,
+        "unit": "COMP110",
+        "time": "07:00 - 10:00",
+        "day": "Wednesday",
+        "group": "C",
+        "totalStudents": 150,
+        "programs": "CS IT "
+      }
+    ]
+  },
+  "LAW5": {
+    "Monday": [
+      {
+        "name": "LAW5",
+        "type": "lecture",
+        "capacity": 500,
+        "unit": "LAW100",
+        "time": "07:00 - 10:00",
+        "day": "Monday",
+        "group": "Non",
+        "totalStudents": 70,
+        "programs": "LAW "
+      }
+    ],
+    "Wednesday": [
+      {
+        "name": "LAW5",
+        "type": "lecture",
+        "capacity": 500,
+        "unit": "BIBLE120",
+        "time": "16:00 - 19:00",
+        "day": "Wednesday",
+        "group": "Non",
+        "totalStudents": 150,
+        "programs": "CS IT "
+      }
+    ],
+    "Saturday": [
+      {
+        "name": "LAW5",
+        "type": "lecture",
+        "capacity": 500,
+        "unit": "COMP110",
+        "time": "10:00 - 13:00",
+        "day": "Saturday",
+        "group": "Non",
+        "totalStudents": 150,
+        "programs": "CS IT "
+      },
+      {
+        "name": "LAW5",
+        "type": "lecture",
+        "capacity": 500,
+        "unit": "COMP100",
+        "time": "13:00 - 16:00",
+        "day": "Saturday",
+        "group": "Non",
+        "totalStudents": 150,
+        "programs": "CS IT "
+      },
+      {
+        "name": "LAW5",
+        "type": "lecture",
+        "capacity": 500,
+        "unit": "BIBLE110",
+        "time": "16:00 - 19:00",
+        "day": "Saturday",
+        "group": "Non",
+        "totalStudents": 220,
+        "programs": "CS IT LAW "
+      }
+    ]
+  },
+  "COMP LAB2": {
+    "Wednesday": [
+      {
+        "name": "COMP LAB2",
+        "type": "lab",
+        "capacity": 50,
+        "unit": "COMP110",
+        "time": "13:00 - 16:00",
+        "day": "Wednesday",
+        "group": "B",
+        "totalStudents": 150,
+        "programs": "CS IT "
+      }
+    ]
+  }
+}

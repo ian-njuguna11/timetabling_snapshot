@@ -1,0 +1,4 @@
+Run the following terminal commands to setup the project on a server:
+php artisan horizon:install
+php artisan queue:failed-table
+php artisan migrate
