@@ -3,7 +3,7 @@
 ### Requirements
 1. Composer
 2. MySQL
-3. Laravel Websockets ([Custom version](https://github.com/kiptooshem/kevs-websocket.git))
+3. Laravel Websockets ([Custom version](https://github.com/DSCKabarak/kevs-websocket-1.git))
 4. Redis
 ### Installation
 #### 1. Clone the repository
