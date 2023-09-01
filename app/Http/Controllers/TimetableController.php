@@ -200,6 +200,7 @@ class TimetableController extends Controller
                     $refinedSession->day = $session->period->day->day;
                     $refinedSession->group = $session->group;
                     $refinedSession->totalStudents = $session->unit->levels->sum("num_students");
+                    $refinedSession->studentsPerGroup = round($session->unit->levels->sum("num_students") / $session->groups);
     
                     $programs = '';
     

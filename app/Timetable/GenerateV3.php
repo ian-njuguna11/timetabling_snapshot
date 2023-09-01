@@ -11,11 +11,33 @@ use Timetabler\Room;
 use Timetabler\Session;
 use Timetabler\Timetable;
 use Timetabler\Unit;
+use Illuminate\Support\Facades\DB;
 
 
-trait GenerateV2{
+trait GenerateV3{
     
-    public function generateV2(){
+    public function generateV3(){
+        // Get all units with sessions
+        $units = Unit::with('levelsInSession')
+            ->whereHas('levelsInSession')
+            ->leftJoin('sessions', 'units.id', '=', 'sessions.unit_id')
+            ->where('sessions.unit_id', '!=', null)
+            ->get()
+            ->map(function($unit){
+                $unit->total_num = $unit->levelsInSession->sum("num_students");
+                return $unit;
+            })->sortBy('total_num',SORT_REGULAR,true)->groupBy('code');
+        // Get all units without sessions
+        $units_without_sessions = Unit::with('levelsInSession')
+            ->whereHas('levelsInSession')
+            ->leftJoin('sessions', 'units.id', '=', 'sessions.unit_id')
+            ->where('sessions.unit_id', '=', null)
+            ->get()
+            ->map(function($unit){
+                $unit->total_num = $unit->levelsInSession->sum("num_students");
+                return $unit;
+            })->sortBy('total_num',SORT_REGULAR,true)->groupBy('code');
+            //dd($units_without_sessions);
         $rooms = Room::with('location')->get();
 
         $timetable = Timetable::with('days', 'days.periods')
@@ -27,32 +49,18 @@ trait GenerateV2{
                 $period->available_rooms = $rooms->pluck('id')->flatten();
                 $period->units = new Collection();
             });
-
         //dd($this->findRooms($periods, $rooms, null)->unique("period_id")->take(3));
-
-        $units = Unit::with('levelsInSession')
-            ->whereHas('levelsInSession')
-            ->get()
-            ->map(function($unit){
-                $unit->total_num = $unit->levelsInSession->sum("num_students");
-                return $unit;
-            })->sortBy('total_num',SORT_REGULAR,true);
-
-        //$unassigned_units = [];
-
-
+        
+        
+        //dd($units);
         $units->each(function($unit) use ($periods, $rooms){
-
             // Get sorted by capacity available rooms for each period
             // All constraints are checked by the function
             $available_rooms = $this->findRooms($periods, $rooms, $unit->lab_type_id, $unit);
-
             $this->printLn("Found rooms: ".$available_rooms->count());
             if($available_rooms->count() == 0 || $unit->total_num == 0)
-            {
-                $this->printLn("Failed to find rooms for unit: ".$unit->code);
+                
                 return;
-            }
 
             // Get the room with the largest capacity
             $max_capacity = $available_rooms->first()->capacity;

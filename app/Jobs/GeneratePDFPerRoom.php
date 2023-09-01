@@ -12,6 +12,7 @@ use Timetabler\Events\BroadcastSimpleMessage;
 use Timetabler\Events\PDFGenerated;
 use stdClass;
 use Timetabler\Room;
+use Timetabler\School;
 use Timetabler\Session;
 
 class GeneratePDFPerRoom implements ShouldQueue
@@ -59,6 +60,7 @@ class GeneratePDFPerRoom implements ShouldQueue
                 $refinedSession->day = $session->period->day->day;
                 $refinedSession->group = $session->group;
                 $refinedSession->totalStudents = $session->unit->levels->sum("num_students");
+                $refinedSession->studentsPerGroup = round($session->unit->levels->sum("num_students") / $session->groups);
 
                 $programs = '';
 
@@ -75,14 +77,13 @@ class GeneratePDFPerRoom implements ShouldQueue
             ->map(function($rooms){
                 return $rooms->groupBy("day");
             });
-
         foreach ($rooms as $key=> $room){
             $timetable_hash_name = $key.".pdf";
 
             // md5($key.time()).
 
             $pdf = App::make('snappy.pdf.wrapper');
-            $pdf->loadView('pdf.room_timetable', ['roomName'=> $key, 'rooms'=> $room]);
+            $pdf->loadView('pdf.room_timetable', ['roomName'=> $key, 'room'=> $room]);
             $pdf->setPaper('A4', 'landscape')->setOption('margin-bottom', 10)->setOption('margin-top', 10);
             //$pdf->setOption('no-pdf-compression',true);
             //return

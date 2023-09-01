@@ -25,7 +25,6 @@ class ImportUnitController extends Controller
         $path = $request->file('csv_file')->getRealPath();
         $file = fopen($path,'r');
 
-        // echo filetype($path);
         $path_parts = pathinfo($request->file('csv_file')->getClientOriginalName());
         if($path_parts['extension'] != "csv"){
             return "File format not suppported";
@@ -56,12 +55,13 @@ class ImportUnitController extends Controller
           $data = array_combine($escapedHeader,$columns);
 
         }
-
-
-        if ($request->has('header')) {
-            $data = Excel::load($path, function($reader) {})->get()->toArray();
-        } else {
-            $data = array_map('str_getcsv', file($path));
+        $data = array_map('str_getcsv', file($path));
+        $keyNames = $data[0]; // First element contains the keys
+        $finalData = [];
+        foreach ($data as $index => $row) {
+            if ($index !== 0) { // Skip the first element since it contains the keys
+                $finalData[] = array_combine($keyNames, $row);
+            }
         }
 
         if (count($data) > 0) {
@@ -71,9 +71,7 @@ class ImportUnitController extends Controller
                     $csv_header_fields[] = $key;
                 }
             }
-            foreach($data as $row){
-
-
+            foreach($finalData as $row){
                 if (Unit::where('code', $row["code"])->exists()) {
                     continue;
                 }else{
@@ -83,7 +81,7 @@ class ImportUnitController extends Controller
                         'name' =>$row["name"],
                         'lecture_hours'=> $row["lecture_hours"],
                         'lab_hours'=>$row["lab_hours"],
-                        // 'lab_type_id'=>90
+                        'lab_type_id'=>$row["lab_type_id"],
                     ]);
                 }
             }

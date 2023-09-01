@@ -1,11 +1,10 @@
 @extends('layouts.datatable')
 @section('Page-Title')
-Programs Timetable
+Rooms Timetable
 @endsection
 
 @section('content')
 @foreach ($rooms as $key=> $room)
-
     <div class="card">
         <div class="card-header">
             <div class="card-title">
@@ -40,7 +39,8 @@ Programs Timetable
                         <td>{{$session->time}}</td>
                         <td>{{$session->unit}} {{$session->type == 'lab' ? "(practical)" : "" }}</td>
                         <td>{{$session->group}}</td>
-                        <td>{{$session->totalStudents}}</td>
+                        {{--<td>{{$session->totalStudents}}</td>--}}
+                        <td>{{$session->studentsPerGroup}}</td>
                         <td>{{$session->programs}}</td>
 
                     </tr>   

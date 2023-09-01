@@ -8,9 +8,11 @@
         {{-- <meta name="viewport" content="width=device-width, initial-scale=1"> --}}
         {{-- <title>jQuery UI Tabs - Default functionality</title> --}}
         <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
-        <link rel="stylesheet" href="/resources/demos/style.css">
+        <link rel="stylesheet" href="{{asset('css/style.css')}}">
         <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
         <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.js" integrity="sha512-CTSrPIDxxtTdaIYlTKHEyvHa+70TOhC1pY3PLDgrUqCFifFtV7KrucZCvPy2K7hB0HtKgt0r4INTGBISqnaLNg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/laravel-echo/1.15.2/echo.js" integrity="sha512-Sl4N4gyjM9NG4XKXIs6VMJc1wng99fzpFvuQIfiTPS+/WfIl3o4Gw/Vkh9qjV0HAHizA9xSmocpuiqbHy0CjBA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Kabarak University | Timetabling</title>
@@ -25,7 +27,7 @@
         <!-- Ionicons -->
         <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
         <!-- Tempusdominus Bootstrap 4 -->
-        <link rel="stylesheet" href="{{asset('  plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css')}}">
+        <link rel="stylesheet" href="{{asset('plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css')}}">
         <!-- iCheck -->
         <link rel="stylesheet" href="{{asset('plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
         <!-- JQVMap -->

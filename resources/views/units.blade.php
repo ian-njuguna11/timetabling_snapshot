@@ -125,6 +125,8 @@ Units
                             </select>
                     </div>
                     
+                    <!--
+                        // removed lecturer field
                     <div class="form-group" id="lecturerFields">
                         <label for="">Lecturer:</label>
                         <select name="lecturer" id="" class="form-control">
@@ -133,6 +135,7 @@ Units
                             @endforeach
                         </select>
                     </div>
+                -->
                     
                     <!-- /.card -->
                     <div class="form-group">

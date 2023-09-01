@@ -165,3 +165,20 @@ Programs Timetable
 
 <br><br><br>
 @endsection
+
+@section('sockets')
+<script type="module">
+        import Echo from 'laravel-echo';
+
+window.io = require('socket.io-client');
+
+const echo = new Echo({
+    broadcaster: 'socket.io',
+    host: window.location.hostname + ':6001', // Replace with your WebSocket server URL
+});
+// Example: Listening to a channel and event
+echo.channel('ala').listen('alala', (data) => {
+    console.log('Received event:', data);
+});
+</script>
+@endsection

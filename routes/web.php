@@ -20,6 +20,8 @@ use Timetabler\Mail\resetPassword;
 
 Auth::routes();
 
+//route to check timetables not in session
+Route::get('timetables_not_in_session', 'CheckController@action');
 
 Route::get('app/call', 'SyncAttendance@appCall');
 
